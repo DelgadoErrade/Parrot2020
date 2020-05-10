@@ -9,7 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Parrot System 2004, C.A.</title>
+    <title>@yield('titulo', 'Parrot System') | Admin </title>
     <!--  AGREGAR ICONO EN LA PESTAÑA DEL NAVEGADOR         -->
     <link href='{{asset("assets/$theme/img/favicon.ico")}}' rel='shortcut icon' type='image/x-icon'>
     <!-- Font Awesome Icons -->
@@ -30,16 +30,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Inicio  Contenido  -->
         <div class="content-wrapper">
             <section class="content">
-                <div class="card">
-                <!-- card header -->
-                    <div class="card-header">
-                      <h3 class="card-title">Title</h3>
-                    </div>
-                <!-- card-body -->
-                    <div class="card-body">
-                        Start creating your amazing application!
-                    </div>
-                </div>
+                <!-- Contenido  -->
+                @yield("contenido")
+                <!-- Fin de Contenido  -->
+
             </section>
         </div>
 
@@ -59,6 +53,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{asset("assets/$theme/plugins/bootstrap/js/bootstrap.bundle.min.js")}}"></script>
 <!-- AdminLTE App -->
     <script src="{{asset("assets/$theme/js/adminlte.min.js")}}"></script>
-
+    @yield('script')
 </body>
 </html>

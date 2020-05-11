@@ -19,8 +19,9 @@ class CreateAsigdeduTable extends Migration
             $table->string('tipo',10);
             $table->string('descripcion', 45);
             $table->string('formula', 25);
-
             $table->timestamps();
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_spanish_ci';
         });
     }
 

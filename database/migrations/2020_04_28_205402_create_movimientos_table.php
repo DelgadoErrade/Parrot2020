@@ -22,7 +22,8 @@ class CreateMovimientosTable extends Migration
             $table->string('descripcion',100);
             $table->decimal('monto', 12,2);
             $table->timestamps();
-
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_spanish_ci';
             $table->foreign('id_banco')->references('id')->on('bancos')
             ->onUpdate('CASCADE')
             ->onDelete('CASCADE');

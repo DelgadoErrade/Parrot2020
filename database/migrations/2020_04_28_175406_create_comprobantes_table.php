@@ -22,7 +22,8 @@ class CreateComprobantesTable extends Migration
             $table->string('beneficiario', 45);
             $table->string('cancela',20);
             $table->date('fecha_cancela');
-
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_spanish_ci';
             $table->timestamps();
         });
     }

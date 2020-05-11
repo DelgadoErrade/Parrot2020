@@ -18,8 +18,9 @@ class CreateTipMovimientosTable extends Migration
             $table->string('tipo_movimiento', 15);
             $table->char('abreviatura', 3);
             $table->char('operacion', 1);
-
             $table->timestamps();
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_spanish_ci';
         });
     }
 

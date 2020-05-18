@@ -1,8 +1,6 @@
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-sm-inline">
+<footer class="main-footer">
+    <div class="pull-right hidden-xs">
+        <b>Version</b> 2.4.0
     </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2020-2025 <a href="#">Parrot System 2004, C.A.</a>.</strong> All rights reserved.
-  </footer>
+    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights reserved.
+</footer>

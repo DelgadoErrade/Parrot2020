@@ -1,25 +1,34 @@
 @extends("theme.$theme.layout")
-
 @section('titulo')
-    Editar Usuario
+    Permisos
+@endsection
+
+@section("scripts")
+<script src="{{asset("assets/pages/scripts/admin/permiso/crear.js")}}" type="text/javascript"></script>
 @endsection
 
 @section('contenido')
-<div class="row pt-3" >
+<div class="row">
     <div class="col-lg-12">
-        <div class="card card-danger">
-            <div class="card-header">
-                <h2 class="card-title">Editar Usuario</h2>
+        @include('includes.mensaje')
+        <div class="box box-danger">
+            <div class="box-header with-border">
+                <h3 class="box-title">Editar Permisos {{$data->nombre}}</h3>
+                <a href="{{route('permiso')}}" class="btn btn-info btn-sm pull-right">Listado</a>
             </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-                    <h1> Aqui registro a editar</h1>
-            </div>
+            <form action="{{route('actualizar_permiso', ['id' => $data->id])}}" id="form-general" class="form-horizontal" method="POST" autocomplete="off">
+                @csrf @method("put")
+                <div class="box-body">
+                    @include('admin.permiso.form')
+                </div>
+                <div class="box-footer">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6">
+                        @include('includes.boton-form-editar')
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
-<!-- /.card-body -->
-
-<!-- /.card -->
-
-    @endsection
+@endsection

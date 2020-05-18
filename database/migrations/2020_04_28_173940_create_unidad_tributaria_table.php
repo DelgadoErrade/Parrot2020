@@ -17,8 +17,9 @@ class CreateUnidadTributariaTable extends Migration
             $table->id();
             $table->date('fecha');
             $table->decimal('unidad_tributaria',10,2);
-
             $table->timestamps();
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_spanish_ci';
         });
     }
 

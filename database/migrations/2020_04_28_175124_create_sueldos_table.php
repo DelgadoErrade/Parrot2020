@@ -20,9 +20,9 @@ class CreateSueldosTable extends Migration
             $table->string('cargo',20);
             $table->decimal('sueldo_mensual',10,2);
             $table->date('fecha');
-
             $table->timestamps();
-
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_spanish_ci';
             // ---  Relaciones entre tablas.
 
             $table->foreign('cedula')->references('cedula')->on('empleados')

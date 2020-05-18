@@ -18,8 +18,9 @@ class CreateBancosTable extends Migration
             $table->string('banco', 20);
             $table->string('tipo_cuenta', 10);
             $table->string('numero_cuenta', 20);
-
             $table->timestamps();
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_spanish_ci';
         });
     }
 

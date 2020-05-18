@@ -15,15 +15,15 @@ class CreateQuincenasTable extends Migration
     {
         Schema::create('quincenas', function (Blueprint $table) {
             $table->id();
-
             $table->foreignId('cedula');
             $table->foreignId('asig_dedu');
             $table->date('fecha');
             $table->date('desde');
             $table->date('hasta');
             $table->integer('id_comprobante')->unique();
-
             $table->timestamps();
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_spanish_ci';
             //  Relaciones entre tablsa
 
             $table->foreign('cedula')->references('cedula')->on('empleados')

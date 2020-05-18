@@ -25,8 +25,9 @@ class CreateEmpleadosTable extends Migration
             $table->string('direccion',150);
             $table->string('ciudad', 20);
             $table->char('zona_postal', 4);
-
             $table->timestamps();
+            $table->charset = 'utf8mb4';
+            $table->collation = 'utf8mb4_spanish_ci';
         });
     }
 

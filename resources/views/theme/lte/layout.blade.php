@@ -41,13 +41,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
         @include("theme/$theme/footer")
         <!-- Fin Pie de pagina      -->
     </div>
-<!-- REQUIRED SCRIPTS -->
-<!-- jQuery -->
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
     <script src="{{asset("assets/$theme/plugins/jquery/jquery.min.js")}}"></script>
-<!-- Bootstrap 4 -->
+    <!-- Bootstrap 4 -->
     <script src="{{asset("assets/$theme/plugins/bootstrap/js/bootstrap.bundle.min.js")}}"></script>
-<!-- AdminLTE App -->
+    <!-- FastClick -->
+    <script src="{{asset("assets/$theme/plugins/fastclick/fastclick.js")}}"></script>
+    <!-- AdminLTE App -->
     <script src="{{asset("assets/$theme/js/adminlte.min.js")}}"></script>
-    @yield('script')
+    <!-- Validación en el cliente -->
+    <script src="{{asset("assets/js/jquery-validation/jquery.validate.min.js")}}"></script>
+    <script src="{{asset("assets/js/jquery-validation/localization/messages_es.min.js")}}"></script>
+    <script src="{{asset("assets/js/funciones.js")}}"></script>
+    @yield('scripts')
 </body>
 </html>

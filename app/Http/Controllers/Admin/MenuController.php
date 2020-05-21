@@ -14,6 +14,7 @@ class MenuController extends Controller
         $menus = Menu::getMenu();
         return view('admin.menu.index', compact('menus'));
        // return view("admin.menu.index");
+       dd($menus);
     }
 
     public function crear()

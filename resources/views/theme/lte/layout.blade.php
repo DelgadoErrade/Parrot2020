@@ -13,9 +13,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!--  AGREGAR ICONO EN LA PESTAÑA DEL NAVEGADOR         -->
     <link href='{{asset("assets/$theme/img/favicon.ico")}}' rel='shortcut icon' type='image/x-icon'>
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href='{{asset("assets/$theme/plugins/fontawesome-free/css/all.min.css")}}''>
+    <link rel="stylesheet" href='{{asset("assets/$theme/plugins/fontawesome-free/css/all.min.css")}}'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href='{{asset("assets/$theme/css/adminlte.min.css")}}'>
+
+    @yield('styles')
+
     <link rel="stylesheet" href='{{asset("assets/css/custom.css")}}'>
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -51,6 +55,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE App -->
     <script src="{{asset("assets/$theme/js/adminlte.min.js")}}"></script>
     <!-- Validación en el cliente -->
+    @yield('scriptsPlugins')
     <script src="{{asset("assets/js/jquery-validation/jquery.validate.min.js")}}"></script>
     <script src="{{asset("assets/js/jquery-validation/localization/messages_es.min.js")}}"></script>
     <script src="{{asset("assets/js/funciones.js")}}"></script>

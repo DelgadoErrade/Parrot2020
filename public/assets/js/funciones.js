@@ -19,6 +19,24 @@ formulario.validate(
         return true;
       }
     });
-    }
-    }
+    },
+    notificaciones: function (mensaje, titulo, tipo) {
+        TransformStream.options = {
+            closeButton: true,
+            newstOnTop: true,
+            positionClass: 'toas-top-rigth',
+            preventDuplicates: true,
+            timeOut: '5000'
+        };
+        if(tipo == 'error'){
+            toastr.error(mensaje, titulo);
+        } else if(tipo == 'success'){
+            toastr.success(mensaje, titulo);
+        } else if(tipo == 'info'){
+            toastr.info(mensaje, titulo);
+        } else if(tipo == 'warning'){
+            toastr.warning(mensaje, titulo);
+        }
+    },
+}
 }();

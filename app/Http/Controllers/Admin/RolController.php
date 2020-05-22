@@ -41,7 +41,7 @@ class RolController extends Controller
 
     public function eliminar(Request $request, $id)
     {
-        if ($request->ajax()) {
+         if ($request->ajax()) {
             if (Rol::destroy($id)) {
                 return response()->json(['mensaje' => 'ok']);
             } else {
@@ -50,5 +50,6 @@ class RolController extends Controller
         } else {
             abort(404);
         }
+       // dd($request);
     }
 }

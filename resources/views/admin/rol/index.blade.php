@@ -10,7 +10,6 @@ Roles
 @section('contenido')
 <div class="row">
     <div class="col-lg-1"></div>
-
         <div class="col-lg-10">
             <hr class="top-rojo">
             @include('includes.mensaje')

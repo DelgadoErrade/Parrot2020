@@ -1,6 +1,6 @@
 @extends("theme.$theme.layout")
 @section('titulo')
-    Roles
+    Editar Rol
 @endsection
 
 @section("scripts")

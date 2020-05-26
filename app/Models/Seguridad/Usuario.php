@@ -10,8 +10,9 @@ use Illuminate\Support\Facades\Hash;
 class Usuario extends Authenticatable
 {
     protected $remember_token = false;
-    protected $table = 'usuario';
-    protected $fillable = ['usuario', 'nombre', 'email', 'password'];
+    protected $table = 'users';
+    protected $fillable = ['usuario',  'email', 'clave'];
+    protected $guarded = ['id'];
 
     public function roles()
     {
@@ -39,6 +40,6 @@ class Usuario extends Authenticatable
 
     public function setPasswordAttribute($pass)
     {
-        $this->attributes['password'] = Hash::make($pass);
+        $this->attributes['clave'] = Hash::make($pass);
     }
 }

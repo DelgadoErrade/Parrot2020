@@ -3,17 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Biblioteca | Login</title>
+    <title>Parrot | Login</title>
+     <!--  AGREGAR ICONO EN LA PESTAÑA DEL NAVEGADOR         -->
+     <link href='{{asset("assets/$theme/img/favicon.ico")}}' rel='shortcut icon' type='image/x-icon'>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="{{asset("assets/$theme/bower_components/bootstrap/dist/css/bootstrap.min.css")}}">
+    <!-- Bootstrap 4-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{asset("assets/$theme/bower_components/font-awesome/css/font-awesome.min.css")}}">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="{{asset("assets/$theme/bower_components/Ionicons/css/ionicons.min.css")}}">
+       <!-- Font Awesome Icons -->
+       <link rel="stylesheet" href='{{asset("assets/$theme/plugins/fontawesome-free/css/all.min.css")}}'>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{asset("assets/$theme/dist/css/AdminLTE.min.css")}}">
+    <link rel="stylesheet" href='{{asset("assets/$theme/css/adminlte.min.css")}}'>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js does not work if you view the page via file:// -->
@@ -27,50 +30,70 @@
 </head>
 
 <body class="hold-transition login-page">
-    <div class="login-box">
-        <div class="login-logo">
-            <a href="{{route('inicio')}}">Biblioteca </a>
-        </div>
-        <!-- /.login-logo -->
-        <div class="login-box-body">
-            <p class="login-box-msg">Inicio su session</p>
+    <div class="row align-items-center vh-100">
+
+        <div class="login-card accent-dark">
+            <div class="login-logo">
+                <a href="{{route('inicio')}}"><h3>Parrot System 2004</h3></a>
+            </div>
+            <!-- /.login-logo -->
+        <div class="login-card-body">
+            <p class="login-card-msg text-center back-to-top">Inicio de sesion</p>
             @if ($errors->any())
-                <div class="alert alert-danger alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <div class="alert alert-danger alert-dismissible" data-auto-dissmiss="3000">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                     <div class="alert-text">
                         @foreach ($errors->all() as $error)
-                            <span>{{ $error }}</span>
+                        <span>{{$error}}</span>
                         @endforeach
                     </div>
                 </div>
-            @endif
-            <form action="{{route('login_post')}}" method="POST" autocomplete="off">
-                @csrf
-                <div class="form-group has-feedback">
-                    <input type="text" name="usuario" class="form-control" value="{{old('usuario')}}" placeholder="Usuario">
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                @endif
+                <form action="{{route('login_post')}}" method="post" autocomplete="off">
+                    @csrf
+                    <div class="input-group mb-3">
+                    <input type="text" name="usuario" class="form-control"" value="{{old('usuario')}}" placeholder="Usuario">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                      <span class="fas fa-envelope"></span>
+                    </div>
                 </div>
-                <div class="form-group has-feedback">
-                    <input type="password" name="password" class="form-control" placeholder="Contraseña">
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="input-group mb-3">
+                <input type="password" name= "password" class="form-control" placeholder="clave">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-lock"></span>
+                    </div>
                 </div>
+            </div>
                 <div class="row">
-                    <div class="col-xs-8"></div>
-                    <!-- /.col -->
-                    <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
+
+                  <!-- /.col -->
+                  <div class="col-12">
+                      <button type="submit" class="btn btn-primary btn-block">Login</button>
                     </div>
                     <!-- /.col -->
                 </div>
             </form>
+
         </div>
         <!-- /.login-box-body -->
     </div>
     <!-- /.login-box -->
 
-    <script src="{{asset("assets/$theme/bower_components/jquery/dist/jquery.min.js")}}"></script>
+    <script src="{{asset("assets/$theme/plugins/jquery/jquery.min.js")}}"></script>
     <!-- Bootstrap 3.3.7 -->
-    <script src="{{asset("assets/$theme/bower_components/bootstrap/dist/js/bootstrap.min.js")}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="{{asset("assets/$theme/plugins/bootstrap/js/bootstrap.min.js")}}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{asset("assets/$theme/js/adminlte.min.js")}}"></script>
+    <script src="{{asset("assets/js/jquery-validation/jquery.validate.min.js")}}"></script>
+    <script src="{{asset("assets/js/jquery-validation/localization/messages_es.min.js")}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="{{asset("assets/js/scripts.js")}}"></script>
+    <script src="{{asset("assets/js/funciones.js")}}"></script>
+</div>
 </body>
 
 </html>

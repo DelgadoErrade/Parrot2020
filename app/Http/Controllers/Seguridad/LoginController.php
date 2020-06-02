@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
 
-    protected $redirectTo = '//admin';
+    protected $redirectTo = '/admin';
 
     public function __construct()
     {
@@ -22,17 +23,19 @@ class LoginController extends Controller
         return view('seguridad.index');
     }
 
-    // protected function authenticated(Request $request, $user)
-    // {
-    //     $roles = $user->roles()->get();
-    //     if ($roles->isNotEmpty()) {
-    //         $user->setSession($roles->toArray());
-    //     } else {
-    //         $this->guard()->logout();
-    //         $request->session()->invalidate();
-    //         return redirect('seguridad/login')->withErrors(['error' => 'Este usuario no tiene un rol activo']);
-    //     }
-    // }
+    protected function authenticated(Request $request, $user)
+    {
+        $roles = $user->roles()->where('estado', 1)->get();
+        if ($roles ->isNotEmpty()) {
+           // dd($user->roles()->where('estado',1)->get());
+            $user->setSession($roles->toArray());
+            //auth()->user()->setSession();
+        } else {
+            $this->guard()->logout();
+            $request->session()->invalidate();
+            return redirect('seguridad/login')->withErrors(['error' => 'Este usuario no tiene un rol activo']);
+        }
+    }
 
     public function username()
     {

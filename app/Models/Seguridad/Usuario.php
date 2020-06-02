@@ -11,7 +11,7 @@ class Usuario extends Authenticatable
 {
     protected $remember_token = false;
     protected $table = 'users';
-    protected $fillable = ['usuario',  'email', 'clave'];
+    protected $fillable = ['usuario',  'nombre', 'password'];
     protected $guarded = ['id'];
 
     public function roles()
@@ -22,6 +22,8 @@ class Usuario extends Authenticatable
     public function setSession($roles)
     {
         Session::put([
+            'rol_id' => $roles[0]['id'],
+            'rol_nombre' => $roles[0]['nombre'],
             'usuario' => $this->usuario,
             'usuario_id' => $this->id,
             'nombre_usuario' => $this->nombre
@@ -31,15 +33,18 @@ class Usuario extends Authenticatable
                 [
                     'rol_id' => $roles[0]['id'],
                     'rol_nombre' => $roles[0]['nombre'],
+                    'nombre'=>$this->nombre
                 ]
             );
-        } else {
-            Session::put('roles', $roles);
         }
+        //dd(session()->get('rol_nombre'));
+        // else {
+        //     Session::put('roles', $roles);
+        // }
     }
 
     public function setPasswordAttribute($pass)
     {
-        $this->attributes['clave'] = Hash::make($pass);
+        $this->attributes['password'] = Hash::make($pass);
     }
 }

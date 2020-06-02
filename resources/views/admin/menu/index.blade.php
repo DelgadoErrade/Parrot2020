@@ -24,7 +24,12 @@ Menú
         <div class="card ">
             <div class="card-header with-border">
                 <h3 class="card-title">Menús</h3>
-                <a href="{{route('crear_menu')}}" class="btn btn-success btn-sm pull-right">Crear menú</a>
+
+                <div class="card-tools pull-right">
+                <a href="{{route('crear_menu')}}" class="btn btn-success btn-sm pull-right">
+                    <i class="fa fa-fw fa-plus-circle"></i> Nuevo registro
+                </a>
+            </div>
             </div>
             <div class="card-body">
                 @csrf

@@ -1,6 +1,6 @@
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-        <b>Version</b> 2.4.0
+        <b>Version</b> 2.5.0
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2020-2025 <a href="#">Parrot System 2004, c.a.o</a>.</strong> All rights reserved.
 </footer>

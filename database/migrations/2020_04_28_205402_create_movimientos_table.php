@@ -14,9 +14,9 @@ class CreateMovimientosTable extends Migration
     public function up()
     {
         Schema::create('movimientos', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('id_banco');
-            $table->foreignId('id_tipo_mov');
+            $table->increments('id');
+            $table->unsignedInteger('id_banco');
+            $table->unsignedInteger('id_tipo_mov');
             $table->date('fecha');
             $table->string('referencia',45);
             $table->string('descripcion',100);

@@ -26,9 +26,11 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         $roles = $user->roles()->where('estado', 1)->get();
+        //dd($roles);
         if ($roles ->isNotEmpty()) {
-           // dd($user->roles()->where('estado',1)->get());
+           //dd($user->roles()->where('estado',1)->get());
             $user->setSession($roles->toArray());
+            //dd($user->setSession($roles->toArray()));
             //auth()->user()->setSession();
         } else {
             $this->guard()->logout();

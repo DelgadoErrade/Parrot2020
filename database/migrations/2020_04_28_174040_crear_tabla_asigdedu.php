@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CrearTablaAsigdedu extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('usuario', 20);
-            $table->string('email', 40)->unique();
-            $table->string('clave', 32);
+        Schema::create('asig_dedu', function (Blueprint $table) {
+            $table->increments('id');
+
+            $table->string('tipo',10);
+            $table->string('descripcion', 45);
+            $table->string('formula', 25);
             $table->timestamps();
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_spanish_ci';
@@ -31,6 +32,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('asigdedu');
     }
 }

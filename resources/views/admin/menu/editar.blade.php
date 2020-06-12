@@ -15,9 +15,13 @@
         @include('includes.mensaje')
         <hr class="top-rojo">
         <div class="card ">
-            <div class="card-header with-border">
+            <div class="card-header with-border bg-info">
                 <h3 class="card-title">Editar Menú</h3>
-                <a href="{{route('menu')}}" class="btn btn-info btn-sm pull-right">Listado</a>
+                <div class="card-tools pull-right">
+                    <a href="{{route('menu')}}" class="btn btn-block btn-info btn-sm">
+                        <i class="fa fa-fw fa-reply-all"></i> Volver al listado
+                    </a>
+                </div>
             </div>
             <form action="{{route('actualizar_menu', ['id' => $data->id])}}" id="form-general" class="form-horizontal" method="POST" autocomplete="off">
                 @csrf @method("put")

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSueldosTable extends Migration
+class CrearTablaSueldos extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,10 @@ class CreateSueldosTable extends Migration
     public function up()
     {
         Schema::create('sueldos', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
 
-            $table->foreignId('cedula');
+            $table->unsignedBigInteger('cedula');
+            $table->foreign('cedula')->references('cedula')->on('empleados')->onUpdate('CASCADE')->onDelete('RESTRICT');
             $table->string('cargo',20);
             $table->decimal('sueldo_mensual',10,2);
             $table->date('fecha');
@@ -25,9 +26,6 @@ class CreateSueldosTable extends Migration
             $table->collation = 'utf8mb4_spanish_ci';
             // ---  Relaciones entre tablas.
 
-            $table->foreign('cedula')->references('cedula')->on('empleados')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
         });
     }
 

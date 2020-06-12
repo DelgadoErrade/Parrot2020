@@ -8,15 +8,17 @@ class UsuarioAdministradorSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('users')->insert([
+        DB::table('usuario')->insert([
             'usuario' => 'admin',
             'nombre' => 'Administrador',
+            'email' => 'parrot.system@gmail.com',
             'password' => bcrypt('pass123')
         ]);
 
-        DB::table('users')->insert([
+        DB::table('usuario')->insert([
             'usuario' => 'rat',
             'nombre' => 'Roosvelt',
+            'email' => 'nojodas@gmail.com',
             'password' => bcrypt('pass123')
         ]);
 

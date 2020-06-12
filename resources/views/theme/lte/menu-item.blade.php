@@ -1,18 +1,19 @@
 @if ($item["submenu"] == [])
-    <li class="{{getMenuActivo($item["url"])}}">
-        <a href="{{url($item['url'])}}">
-          <i class="fa {{$item["icono"]}}"></i> <span>{{$item["nombre"]}}</span>
+<li class="nav-item {{getMenuActivo($item["url"])}}">
+        <a href="{{url($item['url'])}}" class="nav-link">
+          <i class="{{$item["icono"]}} nav-icon"></i> <span>{{$item["nombre"]}}</span>
         </a>
     </li>
 @else
-    <li class="treeview">
-        <a href="javascript:;">
-          <i class="fa {{$item["icono"]}}"></i> <span>{{$item["nombre"]}}</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
+    <li class="nav-item has-treeview">
+        <a href="#" class="nav-link">
+          <i class="nav-icon {{$item["icono"]}}"></i>
+           <p>
+               {{$item["nombre"]}}
+            <i class="right fas fa-angle-left"></i>
+            </p>
         </a>
-        <ul class="treeview-menu">
+        <ul class="nav nav-treeview">
             @foreach ($item["submenu"] as $submenu)
                 @include("theme.$theme.menu-item", ["item" => $submenu])
             @endforeach

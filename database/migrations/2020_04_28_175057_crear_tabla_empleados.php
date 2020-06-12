@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEmpleadosTable extends Migration
+class CrearTablaEmpleados extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateEmpleadosTable extends Migration
     public function up()
     {
         Schema::create('empleados', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
 
             $table->unsignedBigInteger('cedula')->unique();
             $table->string('apellidos', 20);

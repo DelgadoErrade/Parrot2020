@@ -6,19 +6,30 @@ use Illuminate\Support\Facades\Schema;
 
 class CrearTablaUsuario extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('usuario', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('usuario', 50)->unique();
+            $table->string('usuario', 20)->unique();
+            $table->string('nombre', 50)->unique();
             $table->string('password', 100);
-            $table->string('nombre', 50);
-            $table->timestamps();
+            $table->string('email', 100)->unique();
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_spanish_ci';
+            $table->engine = 'InnoDB';
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::dropIfExists('usuario');

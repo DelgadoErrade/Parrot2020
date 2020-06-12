@@ -9,17 +9,23 @@
 
 @section('contenido')
 <div class="row">
-    <div class="col-lg-12">
-        <div class="box box-primary">
-            <div class="box-header with-border">
-                <h3 class="box-title">Permisos</h3>
-                <a href="{{route('crear_permiso')}}" class="btn btn-success btn-sm pull-right">Crear permiso</a>
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        @include('includes.mensaje')
+        <hr class="top-rojo">
+        <div class="card ">
+            <div class="card-header with-border">
+                <h2 class="card-title">Permisos</h2>
+                <div class="card-tools pull-right">
+                    <a href="{{route('crear_permiso')}}" class="btn btn-success btn-sm flex-right"><i class="fa fa-fw fa-plus-circle"></i>Crear permiso</a>
+
+                </div>
             </div>
-            <div class="box-body table-responsive no-padding">
+            <div class="card-body table-responsive no-padding">
                 <table class="table table-striped table-bordered table-hover" id="tabla-data">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Id</th>
                             <th>Nombre </th>
                             <th>Slug</th>
                             <th class="width70"></th>

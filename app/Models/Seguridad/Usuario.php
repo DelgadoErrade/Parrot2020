@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class Usuario extends Authenticatable
 {
     protected $remember_token = false;
-    protected $table = 'users';
+    protected $table = 'usuario';
     protected $fillable = ['usuario',  'nombre', 'password'];
     protected $guarded = ['id'];
 

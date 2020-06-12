@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTipMovimientosTable extends Migration
+class CrearTablaUnidadTributaria extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateTipMovimientosTable extends Migration
      */
     public function up()
     {
-        Schema::create('tip_movimientos', function (Blueprint $table) {
-            $table->id();
-            $table->string('tipo_movimiento', 15);
-            $table->char('abreviatura', 3);
-            $table->char('operacion', 1);
+        Schema::create('unidad_tributaria', function (Blueprint $table) {
+            $table->increments('id');
+            $table->date('fecha');
+            $table->decimal('unidad_tributaria',10,2);
             $table->timestamps();
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_spanish_ci';
@@ -31,6 +30,6 @@ class CreateTipMovimientosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tip_movimientos');
+        Schema::dropIfExists('unidad_tributaria');
     }
 }

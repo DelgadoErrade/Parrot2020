@@ -71,7 +71,7 @@
 
                   <!-- /.col -->
                   <div class="col-12">
-                      <button type="submit" class="btn btn-primary btn-block">Login</button>
+                      <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
                     </div>
                     <!-- /.col -->
                 </div>

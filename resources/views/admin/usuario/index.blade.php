@@ -3,24 +3,30 @@
 Usuarios
 @endsection
 
+@section('styles')
+<link rel="stylesheet" href='{{asset("assets/$theme/plugins/sweetalert2/sweetalert2.min.css")}}'>
+@endsection
+
 @section("scripts")
 <script src="{{asset("assets/pages/scripts/admin/index.js")}}" type="text/javascript"></script>
 @endsection
 
 @section('contenido')
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
         @include('includes.mensaje')
-        <div class="box">
-            <div class="box-header with-border">
-                <h3 class="box-title">Usuarios</h3>
-                <div class="box-tools pull-right">
+        <hr class="top-rojo">
+        <div class="card">
+            <div class="card-header with-border">
+                <h3 class="card-title">Usuarios</h3>
+                <div class="card-tools pull-right">
                     <a href="{{route('crear_usuario')}}" class="btn btn-block btn-success btn-sm">
                         <i class="fa fa-fw fa-plus-circle"></i> Nuevo registro
                     </a>
                 </div>
             </div>
-            <div class="box-body">
+            <div class="card-body">
                 <table class="table table-striped table-bordered table-hover" id="tabla-data">
                     <thead>
                         <tr>
@@ -28,7 +34,8 @@ Usuarios
                             <th>Nombre</th>
                             <th>Email</th>
                             <th>Roles</th>
-                            <th class="width70"></th>
+                            <th class="text-center">Editar</th>
+                            <th class="text-center" >Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,10 +49,12 @@ Usuarios
                                     {{$loop->last ? $rol->nombre : $rol->nombre . ', '}}
                                 @endforeach
                             </td>
-                            <td>
+                            <td class="text-center">
                                 <a href="{{route('editar_usuario', ['id' => $data->id])}}" class="btn-accion-tabla tooltipsC" title="Editar este registro">
-                                    <i class="fa fa-fw fa-pencil"></i>
+                                    <i class="fa fa-fw fa-pencil-alt"></i>
                                 </a>
+                            </td>
+                        <td class="text-center">
                                 <form action="{{route('eliminar_usuario', ['id' => $data->id])}}" class="d-inline form-eliminar" method="POST">
                                     @csrf @method("delete")
                                     <button type="submit" class="btn-accion-tabla eliminar tooltipsC" title="Eliminar este registro">

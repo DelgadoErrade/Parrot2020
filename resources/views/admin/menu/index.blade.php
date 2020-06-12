@@ -24,7 +24,6 @@ Menú
         <div class="card ">
             <div class="card-header with-border">
                 <h3 class="card-title">Menús</h3>
-
                 <div class="card-tools pull-right">
                 <a href="{{route('crear_menu')}}" class="btn btn-success btn-sm pull-right">
                     <i class="fa fa-fw fa-plus-circle"></i> Nuevo registro
@@ -33,7 +32,7 @@ Menú
             </div>
             <div class="card-body">
                 @csrf
-                <div class="dd" id="nestable">
+                <div class="dd w-75" id="nestable">
                     <ol class="dd-list">
                         @foreach ($menus as $key => $item)
                             @if ($item["menu_id"] != 0)

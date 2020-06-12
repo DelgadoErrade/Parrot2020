@@ -2,14 +2,14 @@ $(document).ready(function () {
     $("#tabla-data").on('submit', '.form-eliminar', function () {
         event.preventDefault();
         const form = $(this);
-        swal({
+        swal.fire({
             title: '¿ Está seguro que desea eliminar el registro ?',
             text: "Esta acción no se puede deshacer!",
             icon: 'warning',
-            buttons: {
-                cancel: "Cancelar",
-                confirm: "Aceptar"
-            },
+            showCancelButton: true,
+            confirmButtonText: 'Borrar',
+            cancelButtonText: 'Cancelar',
+            reverseButtons: true,
         }).then((value) => {
             if (value) {
                 ajaxRequest(form);

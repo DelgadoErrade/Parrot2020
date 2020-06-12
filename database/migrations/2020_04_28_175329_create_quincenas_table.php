@@ -14,9 +14,9 @@ class CreateQuincenasTable extends Migration
     public function up()
     {
         Schema::create('quincenas', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('cedula');
-            $table->foreignId('asig_dedu');
+            $table->increments('id');
+            $table->unsignedBigInteger('cedula');
+            $table->unsignedInteger('asig_dedu');
             $table->date('fecha');
             $table->date('desde');
             $table->date('hasta');

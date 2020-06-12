@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -23,22 +22,27 @@ use Illuminate\Support\Facades\Route;
 // });
 
 //
-
 Route::get("/", "InicioController@index")->name('inicio');
 Route::get('seguridad/login', 'Seguridad\LoginController@index')->name('login');
 Route::post('seguridad/login', 'Seguridad\LoginController@login')->name('login_post');
 Route::get('seguridad/logout', 'Seguridad\LoginController@logout')->name('logout');
 // , 'middleware'=>['auth', 'superadmin']
-Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>['auth','superadmin']], function(){
+Route::group(['prefix'=>'admin', 'namespace'=>'Admin'], function(){
     Route::get('', 'AdminController@index');
+     /*  RUTAS DE PERMISO      */
     Route::get('permiso', 'PermisoController@index')->name('permiso');
     Route::get('permiso/crear', 'PermisoController@crear')->name('crear_permiso');
+    Route::post('permiso', 'PermisoController@guardar')->name('guardar_permiso');
+    Route::get('permiso/{id}editar', 'PermisoController@editar')->name('editar_permiso');
+    Route::put('permiso/{id}', 'PermisoController@actualizar')->name('actualizar_permiso');
+    Route::delete('permiso/{id}/eliminar', 'PermisoController@eliminar')->name('eliminar_permiso');
     /*  RUTAS DEL MENU      */
     Route::get('menu', 'MenuController@index')->name('menu');
     Route::get('menu/crear', 'MenuController@crear')->name('crear_menu');
     Route::post('menu', 'MenuController@guardar')->name('guardar_menu');
     Route::get('menu/{id}editar', 'MenuController@editar')->name('editar_menu');
     Route::put('menu/{id}', 'MenuController@actualizar')->name('actualizar_menu');
+    Route::get('menu/{id}/eliminar', 'MenuController@eliminar')->name('eliminar_menu');
     Route::post('menu/guardar-orden', 'MenuController@guardarOrden')->name('guardar_orden');
     /*  RUTAS ROL      */
     Route::get('rol', 'RolController@index')->name('rol');
@@ -50,6 +54,16 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>['auth','su
     /*  RUTAS MENU-ROL      */
     Route::get('menu-rol', 'MenuRolController@index')->name('menu_rol');
     Route::post('menu-rol', 'MenuRolController@guardar')->name('guardar_menu_rol');
+    /*   RUTAS PERMISO-ROL       */
+    Route::get('permiso-rol', 'PermisoRolController@index')->name('permiso_rol');
+    Route::post('permiso-rol', 'PermisoRolController@guardar')->name('guardar_permiso_rol');
+    /*  RUTAS DEL USUARIO      */
+    Route::get('usuario', 'UsuarioController@index')->name('usuario');
+    Route::get('usuario/crear', 'UsuarioController@crear')->name('crear_usuario');
+    Route::post('usuario', 'UsuarioController@guardar')->name('guardar_usuario');
+    Route::get('usuario/{id}editar', 'UsuarioController@editar')->name('editar_usuario');
+    Route::put('usuario/{id}', 'UsuarioController@actualizar')->name('actualizar_usuario');
+    Route::delete('usuario/{id}/eliminar', 'UsuarioController@eliminar')->name('eliminar_usuario');
 
 
 });

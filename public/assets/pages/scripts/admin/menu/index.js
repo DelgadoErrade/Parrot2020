@@ -16,21 +16,39 @@ $(document).ready(function () {
 
     $('.eliminar-menu').on('click', function(event){
         event.preventDefault();
+    //  alert("Bingo, por aquí va.");
         const url = $(this).attr('href');
-        swal({
-            title: '¿ Está seguro que desea eliminar el registro ?',
+        swal.fire({
+            title: '¿Está seguro que desea eliminar el registro ?',
             text: "Esta acción no se puede deshacer!",
             icon: 'warning',
-            buttons: {
-                cancel: "Cancelar",
-                confirm: "Aceptar"
-            },
-        }).then((value) => {
-            if (value) {
+            showCancelButton: true,
+            confirmButtonText: 'Borrar',
+            cancelButtonText: 'Cancelar',
+            reverseButtons: true,
+        }).then((result) => {
+            if (result.value) {
+                alert(url);
+            //   Swal.fire(
+            //     'Borrado!',
+            //     'Tu registro ha sido borrado.',
+            //     'success'
+            //   )
                 window.location.href = url;
             }
-        });
-    })
+          });
+
+
+
+
+
+
+    //     .then((value) => {
+    //         if (value) {
+    //             window.location.href = url;
+    //         }
+    //     });
+      })
 
     $('#nestable').nestable('expandAll');
 });

@@ -26,8 +26,9 @@ Roles
                     <table class="table table-striped table-bordered table-hover" id="tabla-data">
                         <thead>
                             <tr>
-                                <th width="90%">Nombre</th>
-                                <th ></th>
+                                <th width="85%">Nombre</th>
+                                <th >Editar</th>
+                                <th >Borrar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,16 +37,20 @@ Roles
                                 <td>{{$data->nombre}}</td>
                                 <td>
                                     <a href="{{route('editar_rol', ['id' => $data->id])}}" class="btn-accion-tabla tooltipsC" title="Editar este registro">
-                                        <i class="fa fa-fw fa-pencil"></i>
+                                        <i class="fa fa-pencil-alt"></i>
                                     </a>
+                                </td>
+                                <td class= "text-center">
+
                                     <form action="{{route('eliminar_rol', ['id' => $data->id])}}" class="d-inline form-eliminar" method="POST">
                                         {{-- {{route('eliminar_rol', ['id' => $data->id])}} --}}
                                         @csrf @method("delete")
                                         <button type="submit" class="btn-accion-tabla eliminar tooltipsC" title="Eliminar este registro">
-                                            <i class="fa fa-fw fa-trash text-danger"></i>
+                                            <i class="fa-space-shuttle fa fa-trash text-danger"></i>
                                         </button>
                                     </form>
                                 </td>
+
                             </tr>
                             @endforeach
 

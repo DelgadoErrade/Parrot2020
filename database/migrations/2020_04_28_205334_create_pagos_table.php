@@ -14,10 +14,10 @@ class CreatePagosTable extends Migration
     public function up()
     {
         Schema::create('pagos', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
 
-            $table->foreignId('id_comprobantes');
-            $table->foreignId('id_banco');
+            $table->unsignedInteger('id_comprobantes');
+            $table->unsignedInteger('id_banco');
             $table->string('forma_pago',15);
             $table->string('referencia', 6);
             $table->decimal('monto_pago', 12,2);

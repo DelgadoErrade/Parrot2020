@@ -54,6 +54,7 @@ class Menu extends Model
             $item = [array_merge($line, ['submenu' => $menus->getHijos($padres, $line)])];
             $menuAll = array_merge($menuAll, $item);
         }
+        //("MenuAll es igual a....  ".var_dump($menuAll));
         return $menuAll;
     }
 

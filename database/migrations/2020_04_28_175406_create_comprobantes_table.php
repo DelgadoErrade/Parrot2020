@@ -14,7 +14,7 @@ class CreateComprobantesTable extends Migration
     public function up()
     {
         Schema::create('comprobantes', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
 
             $table->integer('n_comprobante');
             $table->string('factura',8);

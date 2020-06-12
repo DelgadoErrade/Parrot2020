@@ -6,6 +6,13 @@ label.requerido:after{
 .top-rojo {
     border: 2px solid red !important;
 }
+.top-verde {
+    border: 2px solid green !important;
+}
+
+.top-azul {
+    border: 2px solid blue !important;
+}
 
 .btn-accion-tabla {
     cursor: pointer;

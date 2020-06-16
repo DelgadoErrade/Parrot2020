@@ -1,7 +1,7 @@
 @if ($item["submenu"] == [])
-<li class="nav-item {{getMenuActivo($item["url"])}}">
-        <a href="{{url($item['url'])}}" class="nav-link">
-          <i class="{{$item["icono"]}} nav-icon"></i> <span>{{$item["nombre"]}}</span>
+<li class="nav-item">
+        <a href="{{url($item['url'])}}" class="nav-link {{getMenuActivo($item["url"])}}">
+          <i class="nav-icon {{$item["icono"]}}"></i> <span>{{$item["nombre"]}}</span>
         </a>
     </li>
 @else

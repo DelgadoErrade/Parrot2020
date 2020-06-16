@@ -14,7 +14,7 @@ class MenuController extends Controller
         $menus = Menu::getMenu();
         return view('admin.menu.index', compact('menus'));
        // return view("admin.menu.index");
-       dd($menus);
+       //dd($menus);
     }
 
     public function crear()
@@ -24,9 +24,6 @@ class MenuController extends Controller
 
     public function guardar(ValidacionMenu $request)
     {
-        /*
-        dd($request->all());
-        */
         Menu::create($request->all());
         return redirect('admin/menu/crear')->with('mensaje', 'Menú creado con exito');
     }

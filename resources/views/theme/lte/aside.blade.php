@@ -21,7 +21,7 @@
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
-        <ul class="sidebar-menu nav-sidebar nav nav-pills  flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <ul class="nav nav-pills nav-sidebar flex-column sidebar-menu nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
            <li class="nav-header ">Menu Principal</li>

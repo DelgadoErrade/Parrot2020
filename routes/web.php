@@ -27,7 +27,7 @@ Route::get('seguridad/login', 'Seguridad\LoginController@index')->name('login');
 Route::post('seguridad/login', 'Seguridad\LoginController@login')->name('login_post');
 Route::get('seguridad/logout', 'Seguridad\LoginController@logout')->name('logout');
 // , 'middleware'=>['auth', 'superadmin']
-Route::group(['prefix'=>'admin', 'namespace'=>'Admin'], function(){
+Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>['auth', 'superadmin']], function(){
     Route::get('', 'AdminController@index');
      /*  RUTAS DE PERMISO      */
     Route::get('permiso', 'PermisoController@index')->name('permiso');
@@ -64,6 +64,11 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin'], function(){
     Route::get('usuario/{id}editar', 'UsuarioController@editar')->name('editar_usuario');
     Route::put('usuario/{id}', 'UsuarioController@actualizar')->name('actualizar_usuario');
     Route::delete('usuario/{id}/eliminar', 'UsuarioController@eliminar')->name('eliminar_usuario');
-
-
 });
+    Route::get('empleado', 'EmpleadoController@index')->name('empleado');
+    Route::get('empleado/crear', 'EmpleadoController@crear')->name('crear_empleado');
+    Route::post('empleado', 'EmpleadoController@guardar')->name('guardar_empleado');
+    Route::get('empleado/{id}editar', 'EmpleadoController@editar')->name('editar_empleado');
+    Route::put('empleado/{id}', 'EmpleadoController@actualizar')->name('actualizar_empleado');
+    Route::delete('empleado/{id}/eliminar', 'EmpleadoController@eliminar')->name('eliminar_empleado');
+

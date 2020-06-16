@@ -13,6 +13,7 @@ class UsuarioController extends Controller
 
     public function index()
     {
+        //dd(Usuario::with('roles:id,nombre'));
         $datas = Usuario::with('roles:id,nombre')->orderBy('id')->get();
         return view('admin.usuario.index', compact('datas'));
     }

@@ -1,18 +1,26 @@
 $(document).ready(function () {
     $("#tabla-data").on('submit', '.form-eliminar', function () {
         event.preventDefault();
+        //alert("Va por donde se espera");
         const form = $(this);
         swal.fire({
             title: '¿ Está seguro que desea eliminar el registro ?',
-            text: "Esta acción no se puede deshacer!",
+            text: "Esta acción no se puede deshacer de ninguna manera!",
             icon: 'warning',
+            showCloseButton: true,
             showCancelButton: true,
             confirmButtonText: 'Borrar',
             cancelButtonText: 'Cancelar',
-            reverseButtons: true,
-        }).then((value) => {
-            if (value) {
+            //reverseButtons: true
+        }).then((result) => {
+            //alert(result.value);
+            if (result.value) {
                 ajaxRequest(form);
+                Swal.fire(
+                    'Eliminado!',
+                    'El registro ha sido elininado con éxito.',
+                    'success'
+                  )
             }
         });
     });

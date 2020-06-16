@@ -4,6 +4,7 @@ namespace App\Models\Seguridad;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Admin\Rol;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 
@@ -11,7 +12,7 @@ class Usuario extends Authenticatable
 {
     protected $remember_token = false;
     protected $table = 'usuario';
-    protected $fillable = ['usuario',  'nombre', 'password'];
+    protected $fillable = ['usuario',  'nombre', 'email', 'password'];
     protected $guarded = ['id'];
 
     public function roles()

@@ -34,17 +34,17 @@
             <label for="fecha_nacimiento" class="control-label requerido">Fecha de Nacimiento</label>
         </div>
         <div class="col-lg-8">
-            <input type="text" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control" value="{{old('fecha_nacimiento', $data->fecha_nacimiento ?? '')}}" required/>
+            <input type="text" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control" value="{{old('fecha_nacimiento', $data->fecha_nacimiento ?? '')}}" required onclick='scwShow(this,event);'/>
         </div>
     </div>
 </div>
 <div class="form-group">
     <div class="row">
         <div class="col-lg-3 text-right">
-            <label foingreso" class="control-label requerido">Fecha de Ingreso</label>
+            <label for="fecha_ingreso" class="control-label requerido">Fecha de Ingreso</label>
         </div>
         <div class="col-lg-8">
-            <input type="text" name="fecha_ingreso" id="fecha_nacimiento" class="form-control" value="{{old('fecha_ingreso', $data->fecha_ingreso ?? '')}}" required/>
+            <input type="text" name="fecha_ingreso" id="fecha_ingreso" class="form-control" value="{{old('fecha_ingreso', $data->fecha_ingreso ?? '')}}" required onclick='scwShow(this,event);'/>
         </div>
     </div>
 </div>
